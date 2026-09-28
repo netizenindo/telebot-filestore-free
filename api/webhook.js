@@ -229,7 +229,10 @@ export default async function handler(req, res) {
     if (update.channel_post && update.channel_post.chat.id === STORAGE_CHANNEL_ID) {
       const msg = update.channel_post;
       const info = getFileInfo(msg);
-
+      console.log("DEBUG keys:", Object.keys(msg));
+      console.log("DEBUG document:", JSON.stringify(msg.document));
+      console.log("DEBUG video:", JSON.stringify(msg.video));
+      console.log("DEBUG info:", JSON.stringify(info));
       if (info) {
         const link = `https://t.me/${BOT_USERNAME}?start=getfile_${encodeSingle(msg.message_id)}`;
 
